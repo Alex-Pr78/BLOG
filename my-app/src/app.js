@@ -12,7 +12,6 @@ export const App = () => {
 			<Div>
 				<i className="fa fa-camera-retro"></i>
 				Hello
-				<i class="fa fa-bomb" aria-hidden="true"></i>
 			</Div>
 		</div>
 	);
