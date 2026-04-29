@@ -2,7 +2,9 @@ import { useForm } from 'react-hook-form';
 import { useState } from 'react';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { Link } from 'react-router-dom';
 import { server } from '../../server';
+import { Input, Button, H2 } from '../../components';
 import styled from 'styled-components';
 
 const autFormSchema = yup.object().shape({
@@ -13,8 +15,8 @@ const autFormSchema = yup.object().shape({
 			/^\w+$/,
 			'Логин может содержать только латинские буквы, цифры и символы подчеркивания',
 		)
-		.min(5, 'Неверный формат логина. Длина логина должна быть не менее 5 символов')
-		.max(15, 'Неверный формат логина. Длина логина должна быть не более 15 символов'),
+		.min(5, 'Неверный формат логина. Минимум 5 символов')
+		.max(15, 'Неверный формат логина. Максимум 15 символов'),
 	password: yup
 		.string()
 		.required('Заполните пароль')
@@ -25,6 +27,18 @@ const autFormSchema = yup.object().shape({
 		.min(6, 'Длина пароля должна быть не менее 6 символов')
 		.max(30, 'Длина пароля должна быть не более 30 символов'),
 });
+
+const StyledLink = styled(Link)`
+	margin-top: 1rem;
+	text-align: center;
+	color: red;
+`;
+
+const ErrorMessage = styled.div`
+	background: red;
+	color: white;
+	padding: 15px;
+`;
 
 const AuthorizationContainer = ({ className }) => {
 	const {
@@ -55,14 +69,23 @@ const AuthorizationContainer = ({ className }) => {
 
 	return (
 		<div className={className}>
-			<h2>Авторизация</h2>
+			<H2>Авторизация</H2>
 			<form onSubmit={handleSubmit(onSubmit)}>
-				<input type="text" placeholder="Логин..." {...register('login')} />
-				<input type="password" placeholder="Пароль..." {...register('password')} />
-				<button type="submit" disabled={!formError}>
-					Войти
-				</button>
-				{errorMessage && <div>{errorMessage}</div>}
+				<Input
+					type="text"
+					placeholder="Логин..."
+					{...register('login', { onChange: () => setServerError(null) })}
+				/>
+				<Input
+					type="password"
+					placeholder="Пароль..."
+					{...register('password', { onChange: () => setServerError(null) })}
+				/>
+				<Button type="submit" width="200px" disabled={!!formError}>
+					Авторизоваться
+				</Button>
+				{errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
+				<StyledLink to="/register">Регистрация</StyledLink>
 			</form>
 		</div>
 	);
@@ -76,6 +99,7 @@ export const Authorization = styled(AuthorizationContainer)`
 
 	& > form {
 		display: flex;
+		width: 260px;
 		flex-direction: column;
 		gap: 10px;
 	}

@@ -11,15 +11,13 @@ const StyledLink = styled(Link)`
 	cursor: pointer;
 	color: #000;
 	font-size: 14px;
-	font-weight: 700;
 	padding: 5px 15px;
 	border: 2px solid #000;
 	border-radius: 5px;
-	transition: all 0.3s ease-in-out;
+	transition: 0.2s ease-in-out;
 
 	&:hover {
-		background: #2864a0;
-		border: none;
+		background: #000;
 		color: #fff;
 	}
 `;
