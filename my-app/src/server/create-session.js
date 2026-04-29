@@ -1,14 +1,14 @@
-import {removeComment} from './session';
-import {ROLE} from '../constants'
+import { removeComment } from './session';
+import { ROLE } from '../constants';
 
 export const createSession = (roleId) => {
 	const session = {
 		logout() {
-				Object.keys(session).forEach((key) => {
-					delete session[key];
-				});
-				console.log('Выход из системы');
-			},
+			Object.keys(session).forEach((key) => {
+				delete session[key];
+			});
+			console.log('Выход из системы');
+		},
 	};
 
 	switch (roleId) {
@@ -23,9 +23,9 @@ export const createSession = (roleId) => {
 		case ROLE.USER: {
 			break;
 		}
-		default: 
+		default:
 		// Ничего не делать
 	}
 
 	return session;
-}
+};
