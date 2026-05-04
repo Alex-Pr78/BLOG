@@ -1,10 +1,21 @@
 import { Link, useNavigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import {
+	selectUserRole,
+	selectUserLogin,
+	selectUserSession,
+} from '../../../../selectors';
+import { ROLE } from '../../../../constants';
+import { logout } from '../../../../actions';
 import { Icon } from '../../../../components';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
 	display: flex;
 	justify-content: flex-end;
+	align-items: center;
+	font-size: 20px;
+	font-weight: 600;
 `;
 
 const StyledLink = styled(Link)`
@@ -24,11 +35,24 @@ const StyledLink = styled(Link)`
 
 const ControlPanelContainer = ({ className }) => {
 	const navigate = useNavigate();
+	const dispatch = useDispatch();
+	const roleId = useSelector(selectUserRole);
+	const login = useSelector(selectUserLogin);
+	const session = useSelector(selectUserSession);
 
 	return (
 		<div className={className}>
 			<Wrapper>
-				<StyledLink to="/login">Войти</StyledLink>
+				{roleId === ROLE.GUEST ? (
+					<StyledLink to="/login">Войти</StyledLink>
+				) : (
+					<>
+						<div>{login}</div>
+						<div onClick={() => dispatch(logout(session))}>
+							<Icon id="fa-sign-out" margin="0 0 0 25px"/>
+						</div>
+					</>
+				)}
 			</Wrapper>
 			<Wrapper>
 				<div onClick={() => navigate(-1)}>

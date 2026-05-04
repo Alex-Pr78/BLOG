@@ -24,4 +24,10 @@ export const Button = styled(ButtonContainer)`
 		background: #2864a0;
 		color: #fff;
 	}
+
+	&:disabled {
+		background: #ccc;
+		color: #999w;
+
+	}
 `;

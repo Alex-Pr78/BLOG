@@ -1,10 +1,14 @@
 import { useForm } from 'react-hook-form';
-import { useState } from 'react';
+import { useDispatch, useSelector, useStore } from 'react-redux';
+import { useEffect, useState } from 'react';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { server } from '../../server';
 import { Input, Button, H2 } from '../../components';
+import { setUser } from '../../actions';
+import { selectUserRole } from '../../selectors';
+import { ROLE } from '../../constants';
 import styled from 'styled-components';
 
 const autFormSchema = yup.object().shape({
@@ -41,8 +45,14 @@ const ErrorMessage = styled.div`
 `;
 
 const AuthorizationContainer = ({ className }) => {
+	const [serverError, setServerError] = useState(null);
+	const roleId = useSelector(selectUserRole);
+	const dispatch = useDispatch();
+	const store = useStore();
+
 	const {
 		register,
+		reset,
 		handleSubmit,
 		formState: { errors },
 	} = useForm({
@@ -53,19 +63,36 @@ const AuthorizationContainer = ({ className }) => {
 		resolver: yupResolver(autFormSchema),
 	});
 
-	const [serverError, setServerError] = useState(null);
+	useEffect(() => {
+		let currentWasLogout = store.getState().app.wasLoggedOut;
+
+		return store.subscribe(() => {
+			let previousWasLogout = currentWasLogout;
+			currentWasLogout = store.getState().app.wasLoggedOut;
+
+			if (previousWasLogout !== currentWasLogout) {
+				reset();
+			}
+		});
+	}, [reset, store]);
 
 	const onSubmit = ({ login, password }) => {
 		server.authorize(login, password).then(({ error, res }) => {
 			if (error) {
 				setServerError(`Ошибка запроса: ${error}`);
+				return;
 			}
+			dispatch(setUser(res));
 		});
 	};
 
 	const formError = errors?.login?.message || errors?.password?.message;
 
 	const errorMessage = formError || serverError;
+
+	if (roleId !== ROLE.GUEST) {
+		return <Navigate to="/" />
+	}
 
 	return (
 		<div className={className}>
