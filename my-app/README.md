@@ -24,7 +24,7 @@
 
 Схема для Redux Store (На клиенте):
 
-- user: (id, login / roleId)
+- user: (id, login, roleId, session)
 - posts: массив post: (id, title, commentsCount, publishedAt, imageUrl)
 - post: (id, title, content, publishedAt, imageUrl, comments: массив: coment(id, autorId, content, publishedAt))
 - users: массив: user(id, login, registedAt, role)
