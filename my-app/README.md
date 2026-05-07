@@ -13,7 +13,7 @@
 
 Таблицы БД:
 
-- пользователи ( users: id, login, password, registed_at, role_id )
+- пользователи ( users: id, login, password, registered_at, role_id )
 - роли ( roles: id, name )
 - статьи ( posts: id, title, content, published_at, image_url )
 - комментарии ( comments: id, autor_id, post_id, content )
@@ -27,4 +27,4 @@
 - user: (id, login, roleId, session)
 - posts: массив post: (id, title, commentsCount, publishedAt, imageUrl)
 - post: (id, title, content, publishedAt, imageUrl, comments: массив: coment(id, autorId, content, publishedAt))
-- users: массив: user(id, login, registedAt, role)
+- users: массив: user(id, login, registeredAt, role)

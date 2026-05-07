@@ -1,0 +1,2 @@
+export * from './registered-date';
+
