@@ -18,18 +18,10 @@ const UsersContainer = ({ className }) => {
 					setErrorMessage(usersRes.error || rolesRes.error);
 					return;
 				}
-				setUsers(usersRes);
-				setRoles(rolesRes);
+				setUsers(usersRes.res);
+				setRoles(rolesRes.res);
 			},
 		);
-
-		requestServer('fetchRoles').then(({ rolesError, res }) => {
-			if (rolesError) {
-				return;
-			}
-			setRoles(res);
-		});
-		requestServer('fetchUsers');
 	}, [requestServer]);
 
 	return (
@@ -69,6 +61,7 @@ export const Users = styled(UsersContainer)`
 	& .table-users {
 		width: 100%;
 		display: flex;
+		flex-direction: column;
 		border: 1px solid red;
 	}
 
@@ -81,9 +74,4 @@ export const Users = styled(UsersContainer)`
 		align-items: center;
 		justify-content: space-between;
 	}
-
-
-
-}
-
 `;

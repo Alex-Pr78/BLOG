@@ -12,8 +12,10 @@ const HeaderContainer = ({ className }) => (
 	<header className={className}>
 		<Logo />
 		<Discription>
-			Веб-технологии<br />
-			Написание кода<br />
+			Веб-технологии
+			<br />
+			Написание кода
+			<br />
 			Расбор ошибок
 		</Discription>
 		<ControlPanel />
@@ -21,7 +23,7 @@ const HeaderContainer = ({ className }) => (
 );
 
 export const Header = styled(HeaderContainer)`
-   display: flex;
+	display: flex;
 	justify-content: space-between;
 	position: fixed;
 	top: 0;
@@ -30,6 +32,6 @@ export const Header = styled(HeaderContainer)`
 	background: #fff;
 	height: 120px;
 	font-size: 36px;
-	fwont-weight: 700;
+	font-weight: 700;
 	box-shadow: 0 0 10px 15px rgba(0, 0, 0, 0.3);
 `;
