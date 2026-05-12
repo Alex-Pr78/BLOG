@@ -3,16 +3,16 @@
     {
       "id": "0",
       "login": "alexey",
-      "password": "qwerty123",
+      "password": "qwe123",
       "registered_at": "2026-04-27",
       "role_id": 0
     },
     {
+		"id": "1",
       "login": "svetlana",
       "password": "qwert123",
       "registed_at": "2026-05-05 12:20",
-      "role_id": 2,
-      "id": "BoUjBqaljhk"
+      "role_id": 1
     },
     {
       "login": "root",

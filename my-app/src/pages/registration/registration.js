@@ -52,7 +52,7 @@ const RegistrationContainer = ({ className }) => {
 		defaultValues: {
 			login: '',
 			password: '',
-			passchek: '',
+			passcheck: '',
 		},
 		resolver: yupResolver(regFormSchema),
 	});
@@ -61,7 +61,6 @@ const RegistrationContainer = ({ className }) => {
 
 	const onSubmit = ({ login, password }) => {
 		server.register(login, password).then(({ error, res }) => {
-
 			if (error) {
 				setServerError(`Ошибка: ${error} !`);
 				return;
@@ -70,7 +69,8 @@ const RegistrationContainer = ({ className }) => {
 		});
 	};
 
-	const formError = errors?.login?.message || errors?.password?.message || errors?.passcheck?.message;
+	const formError =
+		errors?.login?.message || errors?.password?.message || errors?.passcheck?.message;
 
 	const errorMessage = formError || serverError;
 
