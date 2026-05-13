@@ -9,11 +9,11 @@ const IconContainer = ({ className, id, ...props }) => (
 export const Icon = styled(IconContainer)`
 	font-size: ${({ size = '33px' }) => size};
 	margin: ${({ margin = '0' }) => margin};
-	color: ${({ color = '#000' }) => color};
+	color: ${({ disabled }) => disabled ? '#fff' : '#000'};
 	transition: color 0.3s ease-in-out;
 
 	&:hover {
-		cursor: pointer;
-		color: ${({ hovercolor = '#2864a0' }) => hovercolor};
+		color: ${({ disabled }) => disabled ? '#fff' : '#2864a0'};
+		cursor: ${({ disabled }) => disabled ? 'default' : 'pointer'};
 }
 `;

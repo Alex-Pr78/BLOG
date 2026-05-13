@@ -3,12 +3,14 @@ import { useServerRequest } from '../../hooks';
 import { H2 } from '../../components';
 import { Content } from '../../components';
 import { UserRow } from './components/user-row';
+// import { ROLE } from '../../constants';
 import styled from 'styled-components';
 
 const UsersContainer = ({ className }) => {
 	const [roles, setRoles] = useState([]);
 	const [users, setUsers] = useState([]);
 	const [errorMessage, setErrorMessage] = useState(null);
+
 	const requestServer = useServerRequest();
 
 	useEffect(() => {
@@ -30,13 +32,14 @@ const UsersContainer = ({ className }) => {
 				<H2>Пользователи</H2>
 				<div className="table-users">
 					<div className="table-title">
-						<div className="login-column">Логин</div>
-						<div className="registered-at-column">Дата регистрации</div>
-						<div className="role-column">Роль</div>
+						<div>Логин</div>
+						<div>Дата регистрации</div>
+						<div>Роль</div>
 					</div>
 					{users.map(({ id, login, registeredAt, roleId }) => (
 						<UserRow
 							key={id}
+							id={id}
 							login={login}
 							registeredAt={registeredAt}
 							roleId={roleId}
@@ -50,7 +53,6 @@ const UsersContainer = ({ className }) => {
 };
 
 export const Users = styled(UsersContainer)`
-	border: 1px solid #000;
 	width: 570px;
 	display: flex;
 	flex-direction: column;
@@ -62,7 +64,6 @@ export const Users = styled(UsersContainer)`
 		width: 100%;
 		display: flex;
 		flex-direction: column;
-		border: 1px solid red;
 	}
 
 	& .table-title {
@@ -70,6 +71,8 @@ export const Users = styled(UsersContainer)`
 		padding-left: 20px;
 		padding-right: 100px;
 		padding-bottom: 10px;
+		font-size: 20px;
+		font-weight: 500;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
