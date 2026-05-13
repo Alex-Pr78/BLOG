@@ -4,13 +4,13 @@
       "id": "0",
       "login": "alexey",
       "password": "qwe123",
-      "registered_at": "2026-04-27",
+      "registered_at": "2026-04-27 00:00",
       "role_id": 0
     },
     {
-		"id": "1",
+      "id": "1",
       "login": "svetlana",
-      "password": "qwert123",
+      "password": "qwe123",
       "registed_at": "2026-05-05 12:20",
       "role_id": 1
     },
@@ -18,7 +18,7 @@
       "login": "root",
       "password": "000000",
       "registed_at": "2026-05-05 13:46",
-      "role_id": 2,
+      "role_id": 3,
       "id": "lr7yc2FFMUc"
     },
     {
