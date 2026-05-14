@@ -15,18 +15,18 @@
       "role_id": 1
     },
     {
-      "login": "root",
-      "password": "000000",
-      "registed_at": "2026-05-05 13:46",
-      "role_id": 3,
-      "id": "lr7yc2FFMUc"
-    },
-    {
       "login": "Dmitriy",
       "password": "123456",
       "registed_at": "2026-05-05 15:01",
       "role_id": 2,
       "id": "QUjF-kNSFs8"
+    },
+    {
+      "login": "Sergey",
+      "password": "qwe123",
+      "registered_at": "2026-05-14 08:01",
+      "role_id": 2,
+      "id": "5CAswygxPLc"
     }
   ],
   "roles": [

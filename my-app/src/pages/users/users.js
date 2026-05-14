@@ -9,6 +9,7 @@ import styled from 'styled-components';
 const UsersContainer = ({ className }) => {
 	const [roles, setRoles] = useState([]);
 	const [users, setUsers] = useState([]);
+	const [shouldUpdateUserList, setShouldUpdateUserList] = useState(false)
 	const [errorMessage, setErrorMessage] = useState(null);
 
 	const requestServer = useServerRequest();
@@ -24,7 +25,13 @@ const UsersContainer = ({ className }) => {
 				setRoles(rolesRes.res);
 			},
 		);
-	}, [requestServer]);
+	}, [requestServer, shouldUpdateUserList]);
+
+	const onUserRemove = (userId) => {
+		requestServer('removeUser', userId).then(() => {
+			setShouldUpdateUserList(!shouldUpdateUserList);
+		});
+	};
 
 	return (
 		<div className={className}>
@@ -44,6 +51,7 @@ const UsersContainer = ({ className }) => {
 							registeredAt={registeredAt}
 							roleId={roleId}
 							roles={roles}
+							onUserRemove={() => onUserRemove(id)}
 						/>
 					))}
 				</div>
