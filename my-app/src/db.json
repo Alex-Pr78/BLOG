@@ -27,6 +27,13 @@
       "registered_at": "2026-05-14 08:01",
       "role_id": 2,
       "id": "5CAswygxPLc"
+    },
+    {
+      "login": "Nikola",
+      "password": "asdqwe",
+      "registered_at": "2026-05-15 09:13",
+      "role_id": 2,
+      "id": "zPLRBOlX_f8"
     }
   ],
   "roles": [

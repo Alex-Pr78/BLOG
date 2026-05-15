@@ -16,7 +16,7 @@
 - пользователи ( users: id, login, password, registered_at, role_id )
 - роли ( roles: id, name )
 - статьи ( posts: id, title, content, published_at, image_url )
-- комментарии ( comments: id, autor_id, post_id, content )
+- комментарии ( comments: id, author_id, post_id, content )
 
 Схема состояния на BFF:
 
@@ -26,5 +26,5 @@
 
 - user: (id, login, roleId, session)
 - posts: массив post: (id, title, commentsCount, publishedAt, imageUrl)
-- post: (id, title, content, publishedAt, imageUrl, comments: массив: coment(id, autorId, content, publishedAt))
+- post: (id, title, content, publishedAt, imageUrl, comments: массив: coment(id, author, content, publishedAt))
 - users: массив: user(id, login, registeredAt, role)
