@@ -3,7 +3,6 @@ import { useServerRequest } from '../../hooks';
 import { H2 } from '../../components';
 import { Content } from '../../components';
 import { UserRow } from './components/user-row';
-// import { ROLE } from '../../constants';
 import styled from 'styled-components';
 
 const UsersContainer = ({ className }) => {

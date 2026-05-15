@@ -62,7 +62,7 @@ const ControlPanelContainer = ({ className }) => {
 					<Icon id="fa-file-text-o" margin="0 0 0 15px" />
 				</Link>
 				<Link to="/users">
-					<Icon id="fa-users" margin="0 0 0 15px" />
+					<Icon id="fa-users" margin="0 0 0 15px" hover="#1a9911" />
 				</Link>
 			</Wrapper>
 		</div>
