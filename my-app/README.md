@@ -16,7 +16,7 @@
 - пользователи ( users: id, login, password, registered_at, role_id )
 - роли ( roles: id, name )
 - статьи ( posts: id, title, content, published_at, image_url )
-- комментарии ( comments: id, author_id, post_id, content )
+- комментарии ( comments: id, author_id, post_id, content, published_at )
 
 Схема состояния на BFF:
 

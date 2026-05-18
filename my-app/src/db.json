@@ -18,7 +18,7 @@
       "login": "Dmitriy",
       "password": "123456",
       "registed_at": "2026-05-05 15:01",
-      "role_id": 2,
+      "role_id": 3,
       "id": "QUjF-kNSFs8"
     },
     {
@@ -34,6 +34,13 @@
       "registered_at": "2026-05-15 09:13",
       "role_id": 2,
       "id": "zPLRBOlX_f8"
+    },
+    {
+      "login": "Anton",
+      "password": "qwe123",
+      "registered_at": "2026-05-18 11:57",
+      "role_id": 2,
+      "id": "h5eBlC2GuP8"
     }
   ],
   "roles": [

@@ -1,15 +1,27 @@
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useServerRequest } from '../../../../hooks';
+import { selectUserId } from '../../../../selectors';
 import { Comment } from './components';
+import { addCommentAsync } from '../../../../actions';
 import { Icon } from '../../../../components';
 import styled from 'styled-components';
 
-const CommentsContainer = ({ className, comments }) => {
+const CommentsContainer = ({ className, comments, postId }) => {
 	const [newComment, setNewComment] = useState('');
+	const dispatch = useDispatch();
+	const userId = useSelector(selectUserId);
+	const requestServer = useServerRequest();
+
+	const omNewCommentAdd = (userId, postId, content) => {
+		dispatch(addCommentAsync(requestServer, userId, postId, content));
+	}
 
 	return (
 		<div className={className}>
 			<div className="new-comment">
 				<textarea
+				   name='comment'
 					value={newComment}
 					placeholder="Комментарий..."
 					onChange={({ target }) => setNewComment(target.value)}
@@ -18,7 +30,7 @@ const CommentsContainer = ({ className, comments }) => {
 					className="pencil-edit"
 					id="fa-paper-plane"
 					size="25px"
-					onClick={() => {}}
+					onClick={() => omNewCommentAdd(userId, postId, newComment)}
 				/>
 			</div>
 
