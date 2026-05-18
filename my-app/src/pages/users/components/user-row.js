@@ -54,7 +54,7 @@ const UserRowContainer = ({
 					/>
 				</div>
 			</div>
-			<Icon id="fa-trash-o" margin="0 0 0 15px" onClick={onUserRemove} />
+			<Icon id="fa-trash-o" margin="0 0 0 15px" onClick={onUserRemove} hover="#b54518" />
 		</div>
 	);
 };
