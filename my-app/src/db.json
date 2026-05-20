@@ -25,7 +25,7 @@
       "login": "Sergey",
       "password": "qwe123",
       "registered_at": "2026-05-14 08:01",
-      "role_id": 2,
+      "role_id": 1,
       "id": "5CAswygxPLc"
     },
     {
@@ -127,5 +127,72 @@
     }
   ],
   "comments": [],
-  "$schema": "./node_modules/json-server/schema.json"
+  "sessions": [
+    {
+      "hash": "0.34402546709250136913738060684408992528915405273438",
+      "user": {
+        "id": "0",
+        "login": "alexey",
+        "roleId": 0,
+        "password": "qwe123",
+        "registeredAt": "2026-04-27 00:00"
+      },
+      "id": "HNzX3gwY2cg"
+    },
+    {
+      "hash": "0.85250123826969281815024714887840673327445983886719",
+      "user": {
+        "id": "0",
+        "login": "alexey",
+        "roleId": 0,
+        "password": "qwe123",
+        "registeredAt": "2026-04-27 00:00"
+      },
+      "id": "PETnfWuMx_8"
+    },
+    {
+      "hash": "0.47031725652578149077243097053724341094493865966797",
+      "user": {
+        "id": "0",
+        "login": "alexey",
+        "roleId": 0,
+        "password": "qwe123",
+        "registeredAt": "2026-04-27 00:00"
+      },
+      "id": "AASBdcvRsSI"
+    },
+    {
+      "hash": "0.44042016962084662434762094562756828963756561279297",
+      "user": {
+        "id": "1",
+        "login": "svetlana",
+        "roleId": 1,
+        "password": "qwe123",
+        "registeredAt": "2026-05-05 12:20"
+      },
+      "id": "7-0KNbJE6Sg"
+    },
+    {
+      "hash": "0.66034445054748402981203980743885040283203125000000",
+      "user": {
+        "id": "0",
+        "login": "alexey",
+        "roleId": 0,
+        "password": "qwe123",
+        "registeredAt": "2026-04-27 00:00"
+      },
+      "id": "YM6wVewvXEg"
+    },
+    {
+      "hash": "0.88914109877783065183365351913380436599254608154297",
+      "user": {
+        "id": "0",
+        "login": "alexey",
+        "roleId": 0,
+        "password": "qwe123",
+        "registeredAt": "2026-04-27 00:00"
+      },
+      "id": "hGOrBdUb42o"
+    }
+  ]
 }
