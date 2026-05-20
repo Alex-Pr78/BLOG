@@ -28,7 +28,7 @@ export const Blog = () => {
 
 		if (!currentUserDataJSON) {
 			return;
-		} 
+		}
 
 		const currentUserData = JSON.parse(currentUserDataJSON);
 
@@ -44,7 +44,7 @@ export const Blog = () => {
 					<Route path="/login" element={<Authorization />} />
 					<Route path="/register" element={<Registration />} />
 					<Route path="/users" element={<Users />} />
-					<Route path="/post" element={<h2>Новая статья</h2>} />
+					<Route path="/post" element={<div>Новая статья</div>} />
 					<Route path="/post/:id" element={<Post />} />
 					<Route path="*" element={<h2>Ошибка</h2>} />
 				</Routes>
