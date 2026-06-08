@@ -1,10 +1,10 @@
 import { getSession, addSession, deleteSession } from './api';
 
 export const sessions = {
-
 	create(user) {
-		const hash = Math.random().toFixed(50);
-		console.log(user)
+		const hash =
+			Math.random().toString(36).substring(2, 15) +
+			Math.random().toString(36).substring(2, 15);
 		addSession(hash, user);
 		return hash;
 	},
@@ -14,13 +14,12 @@ export const sessions = {
 		if (!session) {
 			return;
 		}
-		deleteSession(session.id)
+		deleteSession(session.id);
 	},
 
 	async access(hash, accessRoles) {
 		const dbSession = await getSession(hash);
-		console.log('access', hash, accessRoles, dbSession)
-		return !!dbSession?.user && accessRoles.includes(dbSession.user.roleId);
+		const hasAccess = !!dbSession?.user && accessRoles.includes(dbSession.user.roleId);
+		return hasAccess;
 	},
-
 };

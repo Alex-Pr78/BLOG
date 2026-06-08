@@ -11,21 +11,21 @@
       "id": "1",
       "login": "svetlana",
       "password": "qwe123",
-      "registed_at": "2026-05-05 12:20",
+      "registered_at": "2026-05-05 12:20",
       "role_id": 1
     },
     {
       "login": "Dmitriy",
       "password": "123456",
-      "registed_at": "2026-05-05 15:01",
-      "role_id": 3,
+      "registered_at": "2026-05-05 15:01",
+      "role_id": 2,
       "id": "QUjF-kNSFs8"
     },
     {
       "login": "Sergey",
       "password": "qwe123",
       "registered_at": "2026-05-14 08:01",
-      "role_id": 1,
+      "role_id": 2,
       "id": "5CAswygxPLc"
     },
     {
@@ -126,128 +126,110 @@
       "image_url": "https://fastly.picsum.photos/id/410/280/160.jpg?hmac=rQGMY7W86P05u0R6XeyNbmEfYiDVJKI8Wh0SUEiYnNg"
     }
   ],
-  "comments": [],
+  "comments": [
+    {
+      "author_id": "0",
+      "post_id": "001",
+      "published_at": "2026-06-08 15:17",
+      "content": "rgerge",
+      "id": "LLdI68bW2D4"
+    },
+    {
+      "author_id": "0",
+      "post_id": "001",
+      "published_at": "2026-06-08 15:24",
+      "content": "Мой первый кометарий",
+      "id": "aV-39KL_qbI"
+    },
+    {
+      "author_id": "1",
+      "post_id": "001",
+      "published_at": "2026-06-08 15:31",
+      "content": "Второй комментарий",
+      "id": "ytsyCmReuBs"
+    },
+    {
+      "author_id": "1",
+      "post_id": "001",
+      "published_at": "2026-06-08 15:36",
+      "content": "Комментарий 3",
+      "id": "OZ9OyZ-U1so"
+    },
+    {
+      "author_id": "1",
+      "post_id": "001",
+      "published_at": "2026-06-08 15:36",
+      "content": "Комментарий 4",
+      "id": "OpfOntomaLg"
+    },
+    {
+      "author_id": "1",
+      "post_id": "001",
+      "published_at": "2026-06-08 15:36",
+      "content": "Комментарий 5",
+      "id": "QZRPJ_j_CsE"
+    },
+    {
+      "author_id": "1",
+      "post_id": "001",
+      "published_at": "2026-06-08 15:36",
+      "content": "Комментарий 6",
+      "id": "bNaFdQZduCc"
+    },
+    {
+      "author_id": "h5eBlC2GuP8",
+      "post_id": "001",
+      "published_at": "2026-06-08 15:38",
+      "content": "Комментарий 7",
+      "id": "_8PtHithHcY"
+    },
+    {
+      "author_id": "h5eBlC2GuP8",
+      "post_id": "001",
+      "published_at": "2026-06-08 15:39",
+      "content": "Комментарий 8",
+      "id": "QIgtvcPA4X4"
+    },
+    {
+      "author_id": "h5eBlC2GuP8",
+      "post_id": "001",
+      "published_at": "2026-06-08 16:00",
+      "content": "Ясность нашей позиции очевидна: реализация намеченных плановых заданий создаёт необходимость включения в производственный план целого ряда внеочередных мероприятий",
+      "id": "N72C9Q8Eo8Y"
+    },
+    {
+      "author_id": "0",
+      "post_id": "001",
+      "published_at": "2026-06-08 16:24",
+      "content": "современные исследования, вне зависимости от их уровня, должны быть разоблачены.",
+      "id": "lzZdnJoRVQ4"
+    },
+    {
+      "author_id": "0",
+      "post_id": "001",
+      "published_at": "2026-06-08 16:57",
+      "content": "Новая модель организационной деятельности стала доступной",
+      "id": "kDl4G8iJOu4"
+    }
+  ],
   "sessions": [
     {
-      "hash": "0.34402546709250136913738060684408992528915405273438",
+      "hash": "7cszu5j9lvuej1u94yx5",
       "user": {
         "id": "0",
         "login": "alexey",
-        "roleId": 0,
-        "password": "qwe123",
-        "registeredAt": "2026-04-27 00:00"
+        "roleId": 0
       },
-      "id": "HNzX3gwY2cg"
+      "id": "5IgWJmQl2xI"
     },
     {
-      "hash": "0.85250123826969281815024714887840673327445983886719",
+      "hash": "qn8t7pbyyiq58trh8j8y7h",
       "user": {
         "id": "0",
         "login": "alexey",
-        "roleId": 0,
-        "password": "qwe123",
-        "registeredAt": "2026-04-27 00:00"
+        "roleId": 0
       },
-      "id": "PETnfWuMx_8"
-    },
-    {
-      "hash": "0.47031725652578149077243097053724341094493865966797",
-      "user": {
-        "id": "0",
-        "login": "alexey",
-        "roleId": 0,
-        "password": "qwe123",
-        "registeredAt": "2026-04-27 00:00"
-      },
-      "id": "AASBdcvRsSI"
-    },
-    {
-      "hash": "0.44042016962084662434762094562756828963756561279297",
-      "user": {
-        "id": "1",
-        "login": "svetlana",
-        "roleId": 1,
-        "password": "qwe123",
-        "registeredAt": "2026-05-05 12:20"
-      },
-      "id": "7-0KNbJE6Sg"
-    },
-    {
-      "hash": "0.66034445054748402981203980743885040283203125000000",
-      "user": {
-        "id": "0",
-        "login": "alexey",
-        "roleId": 0,
-        "password": "qwe123",
-        "registeredAt": "2026-04-27 00:00"
-      },
-      "id": "YM6wVewvXEg"
-    },
-    {
-      "hash": "0.88914109877783065183365351913380436599254608154297",
-      "user": {
-        "id": "0",
-        "login": "alexey",
-        "roleId": 0,
-        "password": "qwe123",
-        "registeredAt": "2026-04-27 00:00"
-      },
-      "id": "hGOrBdUb42o"
-    },
-    {
-      "hash": "0.46013226204879897895949625308276154100894927978516",
-      "user": {
-        "id": "0",
-        "login": "alexey",
-        "roleId": 0,
-        "password": "qwe123",
-        "registeredAt": "2026-04-27 00:00"
-      },
-      "id": "m54hb-Gi7oM"
-    },
-    {
-      "hash": "0.68075352584491299889890569829731248319149017333984",
-      "user": {
-        "id": "0",
-        "login": "alexey",
-        "roleId": 0,
-        "password": "qwe123",
-        "registeredAt": "2026-04-27 00:00"
-      },
-      "id": "KuB9uo1trH4"
-    },
-    {
-      "hash": "0.04336633492246932952696170104900375008583068847656",
-      "user": {
-        "id": "0",
-        "login": "alexey",
-        "roleId": 0,
-        "password": "qwe123",
-        "registeredAt": "2026-04-27 00:00"
-      },
-      "id": "P0rso6VxpRo"
-    },
-    {
-      "hash": "0.96501058588652055547640884469728916883468627929688",
-      "user": {
-        "id": "h5eBlC2GuP8",
-        "login": "Anton",
-        "roleId": 2,
-        "password": "qwe123",
-        "registeredAt": "2026-05-18 11:57"
-      },
-      "id": "ShFmg3lfu9U"
-    },
-    {
-      "hash": "0.08993412964055247371675250178668648004531860351563",
-      "user": {
-        "id": "0",
-        "login": "alexey",
-        "roleId": 0,
-        "password": "qwe123",
-        "registeredAt": "2026-04-27 00:00"
-      },
-      "id": "jRigEPAs7zo"
+      "id": "RReWDgFlTgA"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

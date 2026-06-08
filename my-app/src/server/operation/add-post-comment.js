@@ -4,7 +4,6 @@ import { ROLE } from '../constants';
 
 export const addPostComment = async (hash, userId, postId, content) => {
 	const accessRoles = [ROLE.ADMIN, ROLE.MODERATOR, ROLE.USER];
-	console.log('До проверки addPostComment', userId, postId, content);
 
 	const access = await sessions.access(hash, accessRoles);
 	if (!access) {
@@ -13,7 +12,7 @@ export const addPostComment = async (hash, userId, postId, content) => {
 			res: null,
 		};
 	}
-	console.log('после проверки addPostComment', userId, postId, content);
+
 	await addComment(userId, postId, content);
 
 	const post = await getPost(postId);

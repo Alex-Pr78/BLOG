@@ -9,12 +9,13 @@ import styled from 'styled-components';
 
 const CommentsContainer = ({ className, comments, postId }) => {
 	const [newComment, setNewComment] = useState('');
-	const dispatch = useDispatch();
 	const userId = useSelector(selectUserId);
+	const dispatch = useDispatch();
 	const requestServer = useServerRequest();
 
-	const omNewCommentAdd = (userId, postId, content) => {
+	const onNewCommentAdd = (userId, postId, content) => {
 		dispatch(addCommentAsync(requestServer, userId, postId, content));
+		setNewComment('');
 	}
 
 	return (
@@ -30,7 +31,7 @@ const CommentsContainer = ({ className, comments, postId }) => {
 					className="pencil-edit"
 					id="fa-paper-plane"
 					size="25px"
-					onClick={() => omNewCommentAdd(userId, postId, newComment)}
+					onClick={() => onNewCommentAdd(userId, postId, newComment)}
 				/>
 			</div>
 
@@ -65,6 +66,8 @@ export const Comments = styled(CommentsContainer)`
 		height: 100px;
 		padding: 10px;
 		margin-right: 10px;
+		margin-bottom: 10px;
+		border-radius: 5px;
 		font-size: 20px;
 		resize: none;
 	}
