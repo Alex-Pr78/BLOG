@@ -193,6 +193,62 @@
         "registeredAt": "2026-04-27 00:00"
       },
       "id": "hGOrBdUb42o"
+    },
+    {
+      "hash": "0.46013226204879897895949625308276154100894927978516",
+      "user": {
+        "id": "0",
+        "login": "alexey",
+        "roleId": 0,
+        "password": "qwe123",
+        "registeredAt": "2026-04-27 00:00"
+      },
+      "id": "m54hb-Gi7oM"
+    },
+    {
+      "hash": "0.68075352584491299889890569829731248319149017333984",
+      "user": {
+        "id": "0",
+        "login": "alexey",
+        "roleId": 0,
+        "password": "qwe123",
+        "registeredAt": "2026-04-27 00:00"
+      },
+      "id": "KuB9uo1trH4"
+    },
+    {
+      "hash": "0.04336633492246932952696170104900375008583068847656",
+      "user": {
+        "id": "0",
+        "login": "alexey",
+        "roleId": 0,
+        "password": "qwe123",
+        "registeredAt": "2026-04-27 00:00"
+      },
+      "id": "P0rso6VxpRo"
+    },
+    {
+      "hash": "0.96501058588652055547640884469728916883468627929688",
+      "user": {
+        "id": "h5eBlC2GuP8",
+        "login": "Anton",
+        "roleId": 2,
+        "password": "qwe123",
+        "registeredAt": "2026-05-18 11:57"
+      },
+      "id": "ShFmg3lfu9U"
+    },
+    {
+      "hash": "0.08993412964055247371675250178668648004531860351563",
+      "user": {
+        "id": "0",
+        "login": "alexey",
+        "roleId": 0,
+        "password": "qwe123",
+        "registeredAt": "2026-04-27 00:00"
+      },
+      "id": "jRigEPAs7zo"
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }

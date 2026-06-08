@@ -2,8 +2,10 @@ import { Icon } from '../../../../../../components';
 import styled from 'styled-components';
 
 const CommentContainer = ({ className, id, author, publishedAt, content }) => {
+
 	return (
 		<div className={className}>
+			ghhfhf
 			<div className="information-panel">
 				<div className="author">
 					<Icon
