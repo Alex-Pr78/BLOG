@@ -1,10 +1,10 @@
 import { useLayoutEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Routes, Route } from 'react-router-dom';
-import { Header, Footer } from './components';
+import { Header, Footer, Modal } from './components';
 import { setUser } from './actions';
-import styled from 'styled-components';
 import { Authorization, Post, Registration, Users } from './pages';
+import styled from 'styled-components';
 
 const AppColum = styled.div`
 	display: flex;
@@ -50,6 +50,7 @@ export const Blog = () => {
 				</Routes>
 			</Page>
 			<Footer />
+			<Modal />
 		</AppColum>
 	);
 };

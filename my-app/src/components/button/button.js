@@ -21,13 +21,12 @@ export const Button = styled(ButtonContainer)`
 	transition: all 0.3s ease-in-out;
 
 	&:hover {
-		background: #2864a0;
+		background: ${({ hover = '#2864a0' }) => hover};
 		color: #fff;
 	}
 
 	&:disabled {
 		background: #ccc;
 		color: #999w;
-
 	}
 `;

@@ -130,13 +130,6 @@
     {
       "author_id": "0",
       "post_id": "001",
-      "published_at": "2026-06-08 15:17",
-      "content": "rgerge",
-      "id": "LLdI68bW2D4"
-    },
-    {
-      "author_id": "0",
-      "post_id": "001",
       "published_at": "2026-06-08 15:24",
       "content": "Мой первый кометарий",
       "id": "aV-39KL_qbI"
@@ -230,6 +223,24 @@
         "roleId": 0
       },
       "id": "RReWDgFlTgA"
+    },
+    {
+      "hash": "l9vn9n52ajtdxfksk8mknj",
+      "user": {
+        "id": "0",
+        "login": "alexey",
+        "roleId": 0
+      },
+      "id": "Nj6nor_lNdo"
+    },
+    {
+      "hash": "ptv2bx0invm0gesrc2teo",
+      "user": {
+        "id": "0",
+        "login": "alexey",
+        "roleId": 0
+      },
+      "id": "R8F5k1hda5k"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
