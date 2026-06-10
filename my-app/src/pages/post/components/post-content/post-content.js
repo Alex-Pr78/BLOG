@@ -1,30 +1,34 @@
+import { useNavigate } from 'react-router-dom';
 import { Icon } from '../../../../components';
+import { SpecialPanel } from '../special-panel/special-panel';
 import styled from 'styled-components';
 
 const PostContentContainer = ({
 	className,
 	post: { id, title, imageUrl, content, publishedAt },
 }) => {
+	const navigate = useNavigate();
+
 	return (
 		<div className={className}>
 			<div className="header">
-				{imageUrl && <img src={imageUrl} alt={title} />}
+				{imageUrl && <img className='img-post' src={imageUrl} alt={title} />}
 				<div className="post-title">
 					<h2>{title}</h2>
-
-					<div className="post-published">
-						<div className='calendar'>
-							<Icon id="fa-calendar-o" margin="0 10px 0 0" size="20px" hover="#25680e" />
-							<div>{publishedAt}</div>
-						</div>
-						<div className="post-control-panel">
-							<Icon className="pencil-edit" id="fa-pencil-square-o" size="25px" />
-							<Icon id="fa-trash-o" size="25px" hover="#b54518" />
-						</div>
-					</div>
+					<SpecialPanel
+						publishedAt={publishedAt}
+						editButton={
+							<Icon
+								className="pencil-edit"
+								id="fa-pencil-square-o"
+								size="25px"
+								onClick={() => navigate(`/post/${id}/edit`)}
+							/>
+						}
+					/>
 				</div>
 			</div>
-			<p className="post-text">{content}</p>
+			<div className="post-text">{content}</div>
 		</div>
 	);
 };
@@ -39,40 +43,23 @@ export const PostContent = styled(PostContentContainer)`
 		flex-direction: column;
 	}
 
-	& .post-published {
-		display: flex;
-		flex-direction: row;
-		align-items: center;
-		justify-content: space-between;
-	}
-
 	& h2 {
 		margin: 0 0 30px 30px;
 	}
 
-	& .post-text {
-		margin-top: 30px;
-	}
-
-	& i {
-		position: relative;
-		top: -3px;
-	}
-
 	& .pencil-edit {
 		position: relative;
-		top: 1px;
+		top: 3px;
 	}
 
-	& .post-control-panel {
-
-		align-items: center;
-		display: flex;
-		gap: 15px;
+	& .post-text {
+		margin-top: 30px;
+		white-space: pre-line;
 	}
 
-	& .calendar {
-	margin-left: 30px;
-		display: flex;
+	& .img-post {
+		width: 300px;
+		height: 200px;
+		border-radius: 10px;
 	}
 `;
