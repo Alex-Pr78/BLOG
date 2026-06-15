@@ -34,5 +34,5 @@ export const Header = styled(HeaderContainer)`
 	font-size: 36px;
 	font-weight: 700;
 	box-shadow: 0 0 10px 15px rgba(0, 0, 0, 0.3);
-	z-index: 99;
+	z-index: 10;
 `;

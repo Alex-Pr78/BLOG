@@ -1,8 +1,8 @@
-import { deleteUser } from '../api';
+import { updatePost, addPost } from '../api';
 import { sessions } from '../sessions';
 import { ROLE } from '../constants';
 
-export const removeUser = async (hash, userId) => {
+export const savePost = async (hash, newPostData) => {
 	const accessRoles = [ROLE.ADMIN];
 
 	const access = await sessions.access(hash, accessRoles);
@@ -13,10 +13,13 @@ export const removeUser = async (hash, userId) => {
 		};
 	}
 
-	deleteUser(userId);
+	const savedPost =
+		newPostData.id === ''
+			? await addPost(newPostData)
+			: await updatePost(newPostData);
 
 	return {
 		error: null,
-		res: true,
+		res: savedPost,
 	};
 };
