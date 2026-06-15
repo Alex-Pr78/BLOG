@@ -1,15 +1,15 @@
 import { registeredDate } from '../utils';
 
-export const addComment = (userId, postId, content) =>
-	fetch('http://localhost:3005/comments', {
+export const addPost = ({ imageUrl, title, content }) =>
+	fetch('http://localhost:3005/posts', {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json; charset=UTF-8',
 		},
 		body: JSON.stringify({
-			author_id: userId,
-			post_id: postId,
 			published_at: registeredDate(),
+			image_url: imageUrl,
+			title,
 			content,
 		}),
-	});
+	}).then((createdPost) => createdPost.json());

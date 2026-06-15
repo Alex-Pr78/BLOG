@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useLayoutEffect, useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useServerRequest } from '../../../../hooks';
@@ -12,37 +12,43 @@ const PostFormContainer = ({
 	className,
 	post: { id, title, imageUrl, content, publishedAt },
 }) => {
-	const imageRef = useRef(null);
-	const titleRef = useRef(null);
+	const [imageUrlValue, setImageUrlValue] = useState(imageUrl);
+	const [titleValue, setTitleValue] = useState(title);
 	const contentRef = useRef(null);
+
+	useLayoutEffect(() => {
+		setImageUrlValue(imageUrl);
+		setTitleValue(title);
+	}, [imageUrl, title]);
 
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 	const requestServer = useServerRequest();
 
 	const onSave = () => {
-		const newImageUrl = imageRef.current.value;
-		const newTitle = titleRef.current.value;
 		const newContent = sanitizeContent(contentRef.current.innerHTML);
 
 		dispatch(
 			savePostAsync(requestServer, {
 				id,
-				imageUrl: newImageUrl,
-				title: newTitle,
+				imageUrl: imageUrlValue,
+				title: titleValue,
 				content: newContent,
 			}),
-		).then(() => navigate(`/post/${id}`));
+		).then(({ id }) => navigate(`/post/${id}`));
 	};
+
+	const onImageChange = ({ target }) => setImageUrlValue(target.value);
+	const onTitleChange = ({ target }) => setTitleValue(target.value);
 
 	return (
 		<div className={className}>
-			<Input ref={imageRef} defaultValue={imageUrl} placeholder="Изображение..." />
-			<Input ref={titleRef} defaultValue={title} placeholder="Заголовок..." />
-			<SpecialPanel
-				publishedAt={publishedAt}
-				editButton={<Icon id="fa-floppy-o" size="25px" onClick={onSave} />}
+			<Input
+				value={imageUrlValue}
+				placeholder="Изображение..."
+				onChange={onImageChange}
 			/>
+			<Input value={titleValue} placeholder="Заголовок..." onChange={onTitleChange} />
 			<div
 				className="post-text"
 				ref={contentRef}
@@ -51,6 +57,11 @@ const PostFormContainer = ({
 			>
 				{content}
 			</div>
+			<SpecialPanel
+				id={id}
+				publishedAt={publishedAt}
+				editButton={<Icon id="fa-floppy-o" size="25px" onClick={onSave} />}
+			/>
 		</div>
 	);
 };
@@ -61,6 +72,9 @@ export const PostForm = styled(PostFormContainer)`
 	gap: 10px;
 
 	& .post-text {
+		min-height: 100px;
+		border: 1px solid #000;
+		border-radius: 5px;
 		padding: 10px;
 		white-space: pre-line;
 	}

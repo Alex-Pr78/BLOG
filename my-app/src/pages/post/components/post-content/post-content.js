@@ -16,6 +16,7 @@ const PostContentContainer = ({
 				<div className="post-title">
 					<h2>{title}</h2>
 					<SpecialPanel
+						id={id}
 						publishedAt={publishedAt}
 						editButton={
 							<Icon

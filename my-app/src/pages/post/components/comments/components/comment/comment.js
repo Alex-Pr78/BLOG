@@ -30,13 +30,14 @@ const CommentContainer = ({ className, id, postId, author, publishedAt, content 
 							className="user-avatar"
 							id="fa-user-circle-o"
 							size="25px"
-							onClick={() => {}}
+							hover="#000"
+							def={true}
 						/>
 						{author}
 					</div>
 					<div className="published-at">
 						{publishedAt}
-						<Icon id="fa-calendar-o" size="25px" onClick={() => {}} />
+						<Icon id="fa-calendar-o" size="25px" hover="#000" def={true}/>
 					</div>
 				</div>
 				<div className="comment-text">{content}</div>
