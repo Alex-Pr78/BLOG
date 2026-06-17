@@ -1,17 +1,21 @@
 import { useEffect, useState } from 'react';
 import { useServerRequest } from '../../hooks';
-import { PostCard } from './post-card/post-card';
+import { PAGINATION_LIMIT } from '../../constants';
+import { PostCard, Pagination } from './components';
 import styled from 'styled-components';
 
 const MainContainer = ({ className }) => {
 	const [posts, setPosts] = useState([]);
+	const [totalPages, setTotalPages] = useState(1);
+	const [page, setPage] = useState(1);
 	const requestServer = useServerRequest();
 
 	useEffect(() => {
-		requestServer('fetchPosts').then((posts) => {
+		requestServer('fetchPosts', page, PAGINATION_LIMIT).then((posts) => {
 			setPosts(posts.res);
+			setTotalPages(posts.totalPages);
 		});
-	}, [requestServer]);
+	}, [requestServer, page]);
 
 	return (
 		<div className={className}>
@@ -27,11 +31,13 @@ const MainContainer = ({ className }) => {
 					/>
 				))}
 			</div>
+			{totalPages > 1 && <Pagination setPage={setPage} page={page} totalPages={totalPages}/>}
 		</div>
 	);
 };
 
 export const Main = styled(MainContainer)`
+
 	& .post-list {
 		display: grid;
 		grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
