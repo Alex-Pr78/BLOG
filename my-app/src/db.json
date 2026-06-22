@@ -9,7 +9,7 @@
     },
     {
       "id": "1",
-      "login": "svetlana",
+      "login": "Svetlana",
       "password": "qwe123",
       "registered_at": "2026-05-05 12:20",
       "role_id": 1
@@ -41,6 +41,13 @@
       "registered_at": "2026-05-18 11:57",
       "role_id": 2,
       "id": "h5eBlC2GuP8"
+    },
+    {
+      "login": "KODA",
+      "password": "qwe123",
+      "registered_at": "2026-06-18 13:42",
+      "role_id": 0,
+      "id": "iKh8bAOQV3w"
     }
   ],
   "roles": [
@@ -166,6 +173,62 @@
       "title": "Подробное объяснение",
       "content": "export const fetchPosts = async (page = 1, limit = 9) = {\n\t// 1. Одновременная загрузка постов и комментариев\n\tconst [posts, comments] = await Promise.all([getPosts(), getComments()]);\n\n\t// 2. Добавляем каждому посту количество комментариев\n\tconst allPosts = posts.map((post) = ({\n\t\t...post,\n\t\tcommentsCount: getCommentsCount(comments, post.id),\n\t}));\n\n\t// 3. Вычисляем границы текущей страницы\n\tconst startIndex = (page - 1) * limit; // с какого индекса начинать\n\tconst endIndex = startIndex + limit;   // до какого индекса брать\n\n\t// 4. Отрезаем только нужные посты для текущей страницы\n\tconst paginatedPosts = allPosts.slice(startIndex, endIndex);\n\n\t// 5. Возвращаем посты и общее количество страниц\n\treturn {\n\t\terror: null,\n\t\tres: paginatedPosts,           // посты для текущей страницы\n\t\ttotalPages: Math.ceil(allPosts.length / limit), // всего страниц\n\t};\n};",
       "id": "C9fgjLH95PE"
+    },
+    {
+      "published_at": "2026-06-18 13:45",
+      "image_url": "https://images.steamusercontent.com/ugc/2465249693194657105/C82F78994A404F578968508C9B26DA4E84C1CA3C/?imw=512&amp;imh=288&amp;ima=fit&amp;impolicy=Letterbox&amp;imcolor=%23000000&amp;letterbox=true",
+      "title": "Вот оно! ",
+      "content": "Давай еще раз проверим getPosts контент на странице не отображается. Мне нужно, чтобы посты изначально приходили от сервера.",
+      "id": "qYdhJfkSBEM"
+    },
+    {
+      "published_at": "2026-06-18 14:21",
+      "image_url": "https://img.magnific.com/premium-photo/modern-desktop-computer-concept-illustration_1029473-452504.jpg",
+      "title": "Замыкание",
+      "content": "Это возможность функции, которая находится внутри другой функции, получать доступ к переменным, которые находятся в области видимости родительской функции, даже после того как родительская функция прекратила свое выполнение.",
+      "id": "dWT1MKul7mM"
+    },
+    {
+      "published_at": "2026-06-18 14:34",
+      "image_url": "https://avatars.mds.yandex.net/i?id=48821212f1f1f57f1bc851d4d9961596_l-3501814-images-thumbs&n=13",
+      "title": "Event Loop",
+      "content": "Это бесконечный цикл событий, который позволяет выполнять код асинхронно, не блокируя основной поток данных. Он управляет тем, когда и в каком порядке выполняются: промисы, таймеры, события, сетевые запросы.",
+      "id": "ZDLRnxKommA"
+    },
+    {
+      "published_at": "2026-06-18 14:37",
+      "image_url": "https://i.pinimg.com/originals/e9/37/7a/e9377a296bdeb9f7cfd90ec630a95502.png",
+      "title": "Promise",
+      "content": "это объект, который представляет результат асинхронной операции (например, fetch() или setTimeout()) Он может находиться в одном из трёх состояний: ожидание, успешно завершён или завершён с ошибкой.",
+      "id": "D9wBbZIvq8o"
+    },
+    {
+      "published_at": "2026-06-18 14:40",
+      "image_url": "https://avatars.mds.yandex.net/i?id=5c1201de2fe8d58da40a7394e0180625_l-4452287-images-thumbs&n=13",
+      "title": "async/await",
+      "content": "это удобная форма записи для работы с промисами. Он не заменяет Promise, а работает поверх них, делая код проще и читабельнее. await перед промисом, приостанавливает выполнение функции до тех пор, пока промис не завершится. Проще говоря Promise - это базовый механизм работы с асинхронностью.  А async/await - это удобная обёртка для написания кода, использующего промисы, под капотом await всё равно использует Promise.then()",
+      "id": "S-X5JXCURHc"
+    },
+    {
+      "published_at": "2026-06-18 14:47",
+      "image_url": "https://i.pinimg.com/originals/ff/bd/dd/ffbddd37b2ceffe750fc534bfa11429d.jpg?nii=t",
+      "title": "Асинхронный код",
+      "content": "это код, который выполняется не сразу, а позже, параллельно с другими задачами.\nОн позволяет программе не ждать завершения долгих операций (например, запроса на сервер), а продолжать выполнять остальные действия. Асинхронность нужна, чтобы не блокировать основной поток например: запрос данных с сервера (fetch), таймеры (setTimeout, setInterval), долгие вычисления, чтение и запись файлов, работа с базой",
+      "id": "FvoiFBp-1_M"
+    },
+    {
+      "published_at": "2026-06-18 14:57",
+      "image_url": "https://i.pinimg.com/originals/74/3a/0a/743a0a6a494d0749875694bc82d5c20e.png",
+      "title": "Promise.all()",
+      "content": "Ждёт выполнения всех промисов, переданных в массив.\nЕсли все промисы успешно завершились - возвращает массив результатов.\nЕсли хотя бы один завершился с ошибкой - возвращает ошибку (остальные игнорируются).Promise.race() Возвращает результат самого быстрого промиса - неважно, успешного или с ошибкой. Первый завершившийся (resolve или reject) 'побеждает'.",
+      "id": "lGH0ETVtAbg"
+    },
+    {
+      "published_at": "2026-06-22 11:46",
+      "image_url": "https://thumbs.dreamstime.com/b/page-not-found-error-glitched-screen-vector-background-problem-internet-connection-site-access-technical-trouble-214065031.jpg",
+      "title": "Такая страница не существует",
+      "content": "get-post.js - делает запрос к API. Если статус 404, возвращает ошибку «Такая страница не существует». Если статус не 404 и не ok - «Не удалось загрузить данные». Но проблема: .then((loadedPost) = loadedPost.json()) вызывается только если res.ok, но если ошибка была возвращена через Promise.reject, то следующий .then не вызовется - это правильно.\nОднако проблема в том, что Promise.reject(error) передаёт строку, и она должна быть поймана где-то.",
+      "id": "F4z5dcii3B4"
     }
   ],
   "comments": [
@@ -455,6 +518,76 @@
       "published_at": "2026-06-17 14:14",
       "content": "Math.ceil(allPosts.length / limit) — вычисляем общее количество страниц. Если постов 25 и лимит 9, то страниц будет 3 (25 / 9 = 2.77, округляем вверх до 3).",
       "id": "nX4q11Nfu54"
+    },
+    {
+      "author_id": "0",
+      "post_id": "qYdhJfkSBEM",
+      "published_at": "2026-06-18 13:48",
+      "content": "Давайте разберёмся. Проблема в том, как json-server обрабатывает title_like",
+      "id": "6HWXNe0aMJ8"
+    },
+    {
+      "author_id": "iKh8bAOQV3w",
+      "post_id": "qYdhJfkSBEM",
+      "published_at": "2026-06-18 13:51",
+      "content": "в текущем коде нет параметра title_like. Нужно добавить его, но правильно. Проблема в том, что json-server требует пробелы кодировать как + или %20, а encodeURIComponent кодирует пробелы как %20. Но это должно работать.",
+      "id": "w_6UEgi0ZlE"
+    },
+    {
+      "author_id": "1",
+      "post_id": "qYdhJfkSBEM",
+      "published_at": "2026-06-18 13:52",
+      "content": "Давай проверю, как json-server обрабатывает partial match — возможно, он требует title_like с % или просто ищет точное совпадение",
+      "id": "PAIVW1srk7g"
+    },
+    {
+      "author_id": "iKh8bAOQV3w",
+      "post_id": "qYdhJfkSBEM",
+      "published_at": "2026-06-18 13:53",
+      "content": "Вот оно! В новых версиях json-server параметр _like убрали. Значит, нужно фильтровать посты на клиенте — после получения всех постов отфильтровать по заголовку.",
+      "id": "Ha6bEibkDmM"
+    },
+    {
+      "author_id": "iKh8bAOQV3w",
+      "post_id": "qYdhJfkSBEM",
+      "published_at": "2026-06-18 13:54",
+      "content": "Готово. Объясню, что было:\nПричина проблемы: В новых версиях json-server параметр _like (например, ?title_like=...) больше не поддерживается. Он фильтрует только точное совпадение, а не частичное.",
+      "id": "i3Ij5DO2fVU"
+    },
+    {
+      "author_id": "iKh8bAOQV3w",
+      "post_id": "qYdhJfkSBEM",
+      "published_at": "2026-06-18 13:55",
+      "content": " Теперь getPosts всегда загружает все посты с сервера, а фильтрацию по заголовку делает на клиенте",
+      "id": "4dG4fEdsf94"
+    },
+    {
+      "author_id": "0",
+      "post_id": "F4z5dcii3B4",
+      "published_at": "2026-06-22 11:47",
+      "content": "Однако проблема в том, что Promise.reject(error) передаёт строку, и она должна быть поймана где-то.",
+      "id": "OC6v3-UlJ2c"
+    },
+    {
+      "author_id": "0",
+      "post_id": "F4z5dcii3B4",
+      "published_at": "2026-06-22 11:49",
+      "content": "load-post-async.js - dispatch'ит setPostData, если есть postData.res. Но если произошла ошибка (postData.error), то ничего не dispatch'ится и ошибка не возвращается дальше.",
+      "id": "HqttsjPlFHQ"
+    },
+    {
+      "author_id": "1",
+      "post_id": "F4z5dcii3B4",
+      "published_at": "2026-06-22 11:50",
+      "content": "Проблема в том, что loadPostAsync не возвращает результат из .then(), поэтому в \npost.js\n postData будет undefined. Когда я проверяю postData.error, это условие никогда не выполняется, и ошибка не обрабатывается.",
+      "id": "sNDMqeEi7ss"
+    },
+    {
+      "author_id": "1",
+      "post_id": "F4z5dcii3B4",
+      "published_at": "2026-06-22 11:52",
+      "content": "Чтобы это исправить, нужно либо вернуть промис из loadPostAsync, либо изменить способ обработки ошибки в \nget-post.js\n - вместо Promise.reject возвращать объект с полями res и error, тогда \npost.js\n сможет корректно проверить postData.error.\n\n",
+      "id": "P1F0qerWZ1s"
     }
   ],
   "sessions": [
@@ -583,6 +716,69 @@
         "roleId": 0
       },
       "id": "NR1icGg6_9M"
+    },
+    {
+      "hash": "8qxzmwtkyuuqmkzvnnxrtg",
+      "user": {
+        "id": "0",
+        "login": "alexey",
+        "roleId": 0
+      },
+      "id": "xUOgqzjgjPI"
+    },
+    {
+      "hash": "ot9ahussamu1rslsib3pa",
+      "user": {
+        "id": "0",
+        "login": "alexey",
+        "roleId": 0
+      },
+      "id": "ZJe60a_NXJM"
+    },
+    {
+      "hash": "reko7ejuz1kd0afigr0x2l",
+      "user": {
+        "id": "iKh8bAOQV3w",
+        "login": "KODA",
+        "roleId": 0
+      },
+      "id": "aB62fT_bzdY"
+    },
+    {
+      "hash": "aovyf194ba88g9mpjlbqmw",
+      "user": {
+        "id": "0",
+        "login": "alexey",
+        "roleId": 0
+      },
+      "id": "cFWUxlJLAPw"
+    },
+    {
+      "hash": "5z6qtki2iz81mjg9krhopx",
+      "user": {
+        "id": "0",
+        "login": "alexey",
+        "roleId": 0
+      },
+      "id": "a5zwiP4raZo"
+    },
+    {
+      "hash": "adr9xzntqobwk3sfx01eq",
+      "user": {
+        "id": "0",
+        "login": "alexey",
+        "roleId": 0
+      },
+      "id": "SMx6qJPjV-U"
+    },
+    {
+      "hash": "jccn6m5r1y8sltotyi0xs",
+      "user": {
+        "id": "0",
+        "login": "alexey",
+        "roleId": 0
+      },
+      "id": "J2SLP-g3jec"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
