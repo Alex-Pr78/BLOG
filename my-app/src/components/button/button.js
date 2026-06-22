@@ -26,7 +26,9 @@ export const Button = styled(ButtonContainer)`
 	}
 
 	&:disabled {
-		background: #ccc;
-		color: #999w;
+		background: #fff;
+		color: #fff;
+		cursor: default;
+		border: none;
 	}
 `;

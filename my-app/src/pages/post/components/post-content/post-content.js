@@ -37,11 +37,14 @@ const PostContentContainer = ({
 export const PostContent = styled(PostContentContainer)`
 	& .header {
 		display: flex;
+
 	}
 
 	& .post-title {
 		display: flex;
 		flex-direction: column;
+		min-width: 500px;
+		justify-content: space-between;
 	}
 
 	& h2 {
