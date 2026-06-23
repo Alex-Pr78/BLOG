@@ -15,13 +15,6 @@
       "role_id": 1
     },
     {
-      "login": "Dmitriy",
-      "password": "123456",
-      "registered_at": "2026-05-05 15:01",
-      "role_id": 2,
-      "id": "QUjF-kNSFs8"
-    },
-    {
       "login": "Sergey",
       "password": "qwe123",
       "registered_at": "2026-05-14 08:01",
@@ -41,13 +34,6 @@
       "registered_at": "2026-05-18 11:57",
       "role_id": 2,
       "id": "h5eBlC2GuP8"
-    },
-    {
-      "login": "KODA",
-      "password": "qwe123",
-      "registered_at": "2026-06-18 13:42",
-      "role_id": 0,
-      "id": "iKh8bAOQV3w"
     }
   ],
   "roles": [
@@ -401,13 +387,6 @@
       "id": "SbpUhTXrAkY"
     },
     {
-      "author_id": "QUjF-kNSFs8",
-      "post_id": "OWGN3Er_fus",
-      "published_at": "2026-06-17 11:20",
-      "content": "Возможно, проблема в том, что postData не содержит res, если fetchPost вернул ошибку.",
-      "id": "BYM0P0Sdaro"
-    },
-    {
       "author_id": "0",
       "post_id": "ymvkHfmm0Rg",
       "published_at": "2026-06-17 11:24",
@@ -527,39 +506,11 @@
       "id": "6HWXNe0aMJ8"
     },
     {
-      "author_id": "iKh8bAOQV3w",
-      "post_id": "qYdhJfkSBEM",
-      "published_at": "2026-06-18 13:51",
-      "content": "в текущем коде нет параметра title_like. Нужно добавить его, но правильно. Проблема в том, что json-server требует пробелы кодировать как + или %20, а encodeURIComponent кодирует пробелы как %20. Но это должно работать.",
-      "id": "w_6UEgi0ZlE"
-    },
-    {
       "author_id": "1",
       "post_id": "qYdhJfkSBEM",
       "published_at": "2026-06-18 13:52",
       "content": "Давай проверю, как json-server обрабатывает partial match — возможно, он требует title_like с % или просто ищет точное совпадение",
       "id": "PAIVW1srk7g"
-    },
-    {
-      "author_id": "iKh8bAOQV3w",
-      "post_id": "qYdhJfkSBEM",
-      "published_at": "2026-06-18 13:53",
-      "content": "Вот оно! В новых версиях json-server параметр _like убрали. Значит, нужно фильтровать посты на клиенте — после получения всех постов отфильтровать по заголовку.",
-      "id": "Ha6bEibkDmM"
-    },
-    {
-      "author_id": "iKh8bAOQV3w",
-      "post_id": "qYdhJfkSBEM",
-      "published_at": "2026-06-18 13:54",
-      "content": "Готово. Объясню, что было:\nПричина проблемы: В новых версиях json-server параметр _like (например, ?title_like=...) больше не поддерживается. Он фильтрует только точное совпадение, а не частичное.",
-      "id": "i3Ij5DO2fVU"
-    },
-    {
-      "author_id": "iKh8bAOQV3w",
-      "post_id": "qYdhJfkSBEM",
-      "published_at": "2026-06-18 13:55",
-      "content": " Теперь getPosts всегда загружает все посты с сервера, а фильтрацию по заголовку делает на клиенте",
-      "id": "4dG4fEdsf94"
     },
     {
       "author_id": "0",
@@ -781,13 +732,13 @@
       "id": "zNhcw-tIeXA"
     },
     {
-      "hash": "9207yp17kgh4q1lcrcxzh",
+      "hash": "j3vk52ikla6az0w37awc",
       "user": {
-        "id": "1",
-        "login": "Svetlana",
-        "roleId": 1
+        "id": "0",
+        "login": "alexey",
+        "roleId": 0
       },
-      "id": "Cwm5mVLJVGE"
+      "id": "2dHf9P7CIjQ"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
