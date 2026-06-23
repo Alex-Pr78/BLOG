@@ -6,6 +6,7 @@ import {
 	selectUserSession,
 } from '../../../../selectors';
 import { ROLE } from '../../../../constants';
+import { checkAccess } from '../../../../utils';
 import { logout } from '../../../../actions';
 import { Icon } from '../../../../components';
 import styled from 'styled-components';
@@ -43,7 +44,9 @@ const ControlPanelContainer = ({ className }) => {
 	const onLogout = () => {
 		dispatch(logout(session));
 		sessionStorage.removeItem('userData');
-	}
+	};
+
+	const isAdmin = checkAccess([ROLE.ADMIN], roleId);
 
 	return (
 		<div className={className}>
@@ -54,7 +57,7 @@ const ControlPanelContainer = ({ className }) => {
 					<>
 						<div>{login}</div>
 						<div onClick={onLogout}>
-							<Icon id="fa-sign-out" margin="0 0 0 25px"/>
+							<Icon id="fa-sign-out" margin="0 0 0 25px" />
 						</div>
 					</>
 				)}
@@ -63,12 +66,16 @@ const ControlPanelContainer = ({ className }) => {
 				<div onClick={() => navigate(-1)}>
 					<Icon id="fa-backward" margin="0 0 0 15px" />
 				</div>
-				<Link to="/post">
-					<Icon id="fa-file-text-o" margin="0 0 0 15px" />
-				</Link>
-				<Link to="/users">
-					<Icon id="fa-users" margin="0 0 0 15px" hover="#1a9911" />
-				</Link>
+				{isAdmin && (
+					<>
+						<Link to="/post">
+							<Icon id="fa-file-text-o" margin="0 0 0 15px" />
+						</Link>
+						<Link to="/users">
+							<Icon id="fa-users" margin="0 0 0 15px" hover="#1a9911" />
+						</Link>
+					</>
+				)}
 			</Wrapper>
 		</div>
 	);

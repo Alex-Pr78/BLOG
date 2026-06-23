@@ -1,25 +1,32 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { openModal, CLOSE_MODAL, removeCommentAsync } from '../../../../../../actions';
 import { Icon } from '../../../../../../components';
 import { useServerRequest } from '../../../../../../hooks';
+import { selectUserRole } from '../../../../../../selectors';
+import { ROLE } from '../../../../../../constants';
 import styled from 'styled-components';
+
+
 
 const CommentContainer = ({ className, id, postId, author, publishedAt, content }) => {
 	const dispatch = useDispatch();
 	const requestServer = useServerRequest();
+	const userRole = useSelector(selectUserRole);
 
 	const onCommentRemove = (id) => {
 		dispatch(
 			openModal({
 				title: 'Удалить комментарий?',
 				onConfirm: () => {
-					dispatch(removeCommentAsync(requestServer, postId, id))
+					dispatch(removeCommentAsync(requestServer, postId, id));
 					dispatch(CLOSE_MODAL);
 				},
 				onCancel: () => dispatch(CLOSE_MODAL),
 			}),
 		);
 	};
+
+	const isAdminOrModerator = [ROLE.ADMIN, ROLE.MODERATOR].includes(userRole);
 
 	return (
 		<div className={className}>
@@ -37,17 +44,17 @@ const CommentContainer = ({ className, id, postId, author, publishedAt, content 
 					</div>
 					<div className="published-at">
 						{publishedAt}
-						<Icon id="fa-calendar-o" size="25px" hover="#000" def={true}/>
+						<Icon id="fa-calendar-o" size="25px" hover="#000" def={true} />
 					</div>
 				</div>
 				<div className="comment-text">{content}</div>
 			</div>
-			<Icon
+			{isAdminOrModerator &&<Icon
 				id="fa-trash-o"
 				size="25px"
 				hover="#b54518"
 				onClick={() => onCommentRemove(id)}
-			/>
+			/>}
 		</div>
 	);
 };
