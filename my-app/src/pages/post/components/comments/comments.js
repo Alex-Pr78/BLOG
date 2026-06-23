@@ -1,10 +1,11 @@
+import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useServerRequest } from '../../../../hooks';
 import { selectUserId, selectUserRole } from '../../../../selectors';
 import { Comment } from './components';
 import { addCommentAsync } from '../../../../actions';
-import { ROLE } from '../../../../constants';
+import { PROP_TYPE, ROLE } from '../../../../constants';
 import { Icon } from '../../../../components';
 import styled from 'styled-components';
 
@@ -18,26 +19,28 @@ const CommentsContainer = ({ className, comments, postId }) => {
 	const onNewCommentAdd = (userId, postId, content) => {
 		dispatch(addCommentAsync(requestServer, userId, postId, content));
 		setNewComment('');
-	}
+	};
 
 	const isGuest = userRole === ROLE.GUEST;
 
 	return (
 		<div className={className}>
-			{!isGuest && <div className="new-comment">
-				<textarea
-				   name='comment'
-					value={newComment}
-					placeholder="Комментарий..."
-					onChange={({ target }) => setNewComment(target.value)}
-				></textarea>
-				<Icon
-					className="pencil-edit"
-					id="fa-paper-plane"
-					size="25px"
-					onClick={() => onNewCommentAdd(userId, postId, newComment)}
-				/>
-			</div>}
+			{!isGuest && (
+				<div className="new-comment">
+					<textarea
+						name="comment"
+						value={newComment}
+						placeholder="Комментарий..."
+						onChange={({ target }) => setNewComment(target.value)}
+					></textarea>
+					<Icon
+						className="pencil-edit"
+						id="fa-paper-plane"
+						size="25px"
+						onClick={() => onNewCommentAdd(userId, postId, newComment)}
+					/>
+				</div>
+			)}
 
 			<div className="comments">
 				{comments.map(({ id, author, content, publishedAt }) => (
@@ -77,3 +80,8 @@ export const Comments = styled(CommentsContainer)`
 		resize: none;
 	}
 `;
+
+Comments.propTypes = {
+	comments: PropTypes.arrayOf(PROP_TYPE.COMMENT).isRequired,
+	postId: PropTypes.string.isRequired,
+};

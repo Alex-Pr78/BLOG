@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { openModal, CLOSE_MODAL, removeCommentAsync } from '../../../../../../actions';
 import { Icon } from '../../../../../../components';
@@ -5,8 +6,6 @@ import { useServerRequest } from '../../../../../../hooks';
 import { selectUserRole } from '../../../../../../selectors';
 import { ROLE } from '../../../../../../constants';
 import styled from 'styled-components';
-
-
 
 const CommentContainer = ({ className, id, postId, author, publishedAt, content }) => {
 	const dispatch = useDispatch();
@@ -49,12 +48,14 @@ const CommentContainer = ({ className, id, postId, author, publishedAt, content 
 				</div>
 				<div className="comment-text">{content}</div>
 			</div>
-			{isAdminOrModerator &&<Icon
-				id="fa-trash-o"
-				size="25px"
-				hover="#b54518"
-				onClick={() => onCommentRemove(id)}
-			/>}
+			{isAdminOrModerator && (
+				<Icon
+					id="fa-trash-o"
+					size="25px"
+					hover="#b54518"
+					onClick={() => onCommentRemove(id)}
+				/>
+			)}
 		</div>
 	);
 };
@@ -94,3 +95,11 @@ export const Comment = styled(CommentContainer)`
 		gap: 10px;
 	}
 `;
+
+Comment.propTypes = {
+	id: PropTypes.string.isRequired,
+	postId: PropTypes.string.isRequired,
+	author: PropTypes.string.isRequired,
+	content: PropTypes.string.isRequired,
+	publihedAt: PropTypes.string.isRequired,
+};
