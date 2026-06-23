@@ -772,13 +772,22 @@
       "id": "SMx6qJPjV-U"
     },
     {
-      "hash": "jccn6m5r1y8sltotyi0xs",
+      "hash": "vpbiwk78uamnfpny6t3ag",
       "user": {
         "id": "0",
         "login": "alexey",
         "roleId": 0
       },
-      "id": "J2SLP-g3jec"
+      "id": "zNhcw-tIeXA"
+    },
+    {
+      "hash": "9207yp17kgh4q1lcrcxzh",
+      "user": {
+        "id": "1",
+        "login": "Svetlana",
+        "roleId": 1
+      },
+      "id": "Cwm5mVLJVGE"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
